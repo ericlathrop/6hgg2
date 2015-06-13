@@ -51,13 +51,6 @@ function goal(entity, goal) {
 	return vector.divide(vector.subtract(goal, entity.position), 100);
 }
 
-function repel(entity, goal) {
-	if (vector.distance(entity, goal) < 100) {
-		return vector.divide(vector.subtract(entity.position, goal), 100);
-	}
-	return vector.zero();
-}
-
 function limitSpeed(v, max) {
 	if (vector.magnitude(v) > max) {
 		return vector.multiply(vector.unit(v), max);
@@ -66,17 +59,21 @@ function limitSpeed(v, max) {
 }
 
 var counter = 0;
+var target;
 
 module.exports = function(ecs, data) {
+	target = { x: data.canvas.width / 2, y: data.canvas.height / 2 };
 	ecs.addEach(function(entity, elapsedMillis) {
 		var steps = [];
 
 		steps.push(alignment(entity, data.entities.entities));
 		steps.push(separation(entity, data.entities.entities));
 		// steps.push(cohesion(entity, data.entities.entities));
-		var center = { x: data.canvas.width / 2, y: data.canvas.height / 2 };
-		var mouse = { x: data.input.mouse.x, y: data.input.mouse.y };
-		steps.push(data.input.mouse.isPressed(0) ? repel(entity, mouse) : goal(entity, mouse));
+		if (data.input.mouse.consumePressed(0)) {
+			target = { x: data.input.mouse.x, y: data.input.mouse.y };
+			data.sounds.play("buzz");
+		}
+		steps.push(goal(entity, target));
 
 		steps = steps.map(function(step) { return limitSpeed(step, 0.1); });
 		steps.push(limitSpeed(entity.velocity, 1));
