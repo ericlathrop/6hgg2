@@ -7,12 +7,29 @@
     "y": 10
    },
    "size": {
-    "width": 10,
-    "height": 10
+    "width": 7,
+    "height": 6
    },
    "velocity": {
     "x": 0,
     "y": 0
+   },
+   "animation": {
+    "time": 0,
+    "frame": 0,
+    "loop": true,
+    "speed": 1,
+    "name": "bee-f2"
+   },
+   "image": {
+    "sourceX": 0,
+    "sourceY": 0,
+    "sourceWidth": 0,
+    "sourceHeight": 0,
+    "destinationX": -7,
+    "destinationY": -6,
+    "destinationWidth": 14,
+    "destinationHeight": 12
    },
    "flock": true
   },
@@ -30,6 +47,23 @@
     "x": 0,
     "y": 0
    },
+   "animation": {
+    "time": 0,
+    "frame": 0,
+    "loop": true,
+    "speed": 1,
+    "name": "bee-f2"
+   },
+   "image": {
+    "sourceX": 0,
+    "sourceY": 0,
+    "sourceWidth": 0,
+    "sourceHeight": 0,
+    "destinationX": -7,
+    "destinationY": -6,
+    "destinationWidth": 14,
+    "destinationHeight": 12
+   },
    "flock": true
   },
   {
@@ -45,6 +79,23 @@
    "velocity": {
     "x": 0,
     "y": 0
+   },
+   "animation": {
+    "time": 0,
+    "frame": 0,
+    "loop": true,
+    "speed": 1,
+    "name": "bee-f2"
+   },
+   "image": {
+    "sourceX": 0,
+    "sourceY": 0,
+    "sourceWidth": 0,
+    "sourceHeight": 0,
+    "destinationX": -7,
+    "destinationY": -6,
+    "destinationWidth": 14,
+    "destinationHeight": 12
    },
    "flock": true
   },
@@ -62,6 +113,23 @@
     "x": 0,
     "y": 0
    },
+   "animation": {
+    "time": 0,
+    "frame": 0,
+    "loop": true,
+    "speed": 1,
+    "name": "bee-f2"
+   },
+   "image": {
+    "sourceX": 0,
+    "sourceY": 0,
+    "sourceWidth": 0,
+    "sourceHeight": 0,
+    "destinationX": -7,
+    "destinationY": -6,
+    "destinationWidth": 14,
+    "destinationHeight": 12
+   },
    "flock": true
   },
   {
@@ -78,7 +146,25 @@
     "x": 0,
     "y": 0
    },
+   "animation": {
+    "time": 0,
+    "frame": 0,
+    "loop": true,
+    "speed": 1,
+    "name": "bee-f2"
+   },
+   "image": {
+    "sourceX": 0,
+    "sourceY": 0,
+    "sourceWidth": 0,
+    "sourceHeight": 0,
+    "destinationX": -7,
+    "destinationY": -6,
+    "destinationWidth": 14,
+    "destinationHeight": 12
+   },
    "flock": true
   }
- ]
+ ],
+ "main": []
 }

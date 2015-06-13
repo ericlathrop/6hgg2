@@ -10,7 +10,6 @@
 		"splatjs:clearScreen",
 		"splatjs:viewport.moveToCamera",
 		"splatjs:drawImage",
-		"splatjs:drawRectangles",
 		"splatjs:viewport.reset"
 	]
 }

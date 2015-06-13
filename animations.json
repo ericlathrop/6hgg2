@@ -1,1 +1,28 @@
-{}
+{
+ "bee-f2": [
+  {
+   "time": 50,
+   "properties": {
+    "image": {
+     "name": "bee-f2",
+     "sourceX": 0,
+     "sourceY": 0,
+     "sourceWidth": 7,
+     "sourceHeight": 6
+    }
+   }
+  },
+  {
+   "time": 50,
+   "properties": {
+    "image": {
+     "name": "bee-f2",
+     "sourceX": 7,
+     "sourceY": 0,
+     "sourceWidth": 7,
+     "sourceHeight": 6
+    }
+   }
+  }
+ ]
+}
