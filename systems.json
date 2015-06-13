@@ -7,7 +7,7 @@
 		"splatjs:boxCollider"
 	],
 	"renderer": [
-		"splatjs:clearScreen",
+		"./systems/renderer/drawBackground",
 		"splatjs:viewport.moveToCamera",
 		"splatjs:drawImage",
 		"splatjs:viewport.reset"
