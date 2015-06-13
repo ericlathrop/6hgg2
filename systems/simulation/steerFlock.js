@@ -90,6 +90,23 @@ module.exports = function(ecs, data) {
 			bee.size = { width: 10, height: 10 };
 			bee.velocity = { x: 0, y: 0 };
 			bee.flock = true;
+			bee.image = {
+				"sourceX": 0,
+				"sourceY": 0,
+				"sourceWidth": 0,
+				"sourceHeight": 0,
+				"destinationX": -7,
+				"destinationY": -6,
+				"destinationWidth": 14,
+				"destinationHeight": 12
+			};
+			bee.animation = {
+				"time": 0,
+				"frame": 0,
+				"loop": true,
+				"speed": 1,
+				"name": "bee-f2"
+			};
 		}
 	}, ["flock"]);
 };
