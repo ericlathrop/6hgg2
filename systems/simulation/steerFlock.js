@@ -17,7 +17,7 @@ function alignment(entity, entities) {
 
 	var center = positions.reduce(function(center, position) {
 		return vector.add(center, position);
-	}, { x: 0, y: 0 });
+	}, vector.zero());
 
 	center = vector.divide(center, positions.length);
 
