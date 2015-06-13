@@ -61,10 +61,40 @@ function limitSpeed(v, max) {
 var counter = 0;
 var target;
 
+var enemyCounter = 0;
+
 module.exports = function(ecs, data) {
 	target = { x: data.canvas.width / 2, y: data.canvas.height / 2 };
 	ecs.addEach(function(entity, elapsedMillis) {
 		var steps = [];
+		enemyCounter += elapsedMillis;
+		if (enemyCounter > 1000) {
+			enemyCounter -= 1000;
+
+			var enemy = data.entities.add();
+			enemy.name = "enemy";
+			enemy.position = { x: -100, y: Math.random() * data.canvas.height };
+			enemy.size = { width: 100, height: 50 };
+			enemy.velocity = { x: 1, y: 0 };
+			enemy.collisions = [];
+			enemy.image = {
+				"sourceX": 0,
+				"sourceY": 0,
+				"sourceWidth": 0,
+				"sourceHeight": 0,
+				"destinationX": 0,
+				"destinationY": 0,
+				"destinationWidth": 100,
+				"destinationHeight": 50
+			};
+			enemy.animation = {
+				"time": 0,
+				"frame": 0,
+				"loop": true,
+				"speed": 1,
+				"name": "red"
+			};
+		}
 
 		entity.collisions.map(function(id) {
 			return data.entities.entities[id];
