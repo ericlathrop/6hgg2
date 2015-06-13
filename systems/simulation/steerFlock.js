@@ -25,13 +25,13 @@ function alignment(entity, entities) {
 }
 
 function separation(entity, entities) {
-	return vector.multiply(otherBees(entity, entities).reduce(function(v, bee) {
+	return otherBees(entity, entities).reduce(function(v, bee) {
 		if (vector.distance(entity.position, bee.position) < 100) {
 			var away = vector.subtract(bee.position, entity.position);
 			return vector.subtract(v, away);
 		}
 		return v;
-	}, vector.zero()), 2);
+	}, vector.zero());
 }
 
 function cohesion(entity, entities) {
