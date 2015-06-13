@@ -66,6 +66,14 @@ module.exports = function(ecs, data) {
 	ecs.addEach(function(entity, elapsedMillis) {
 		var steps = [];
 
+		entity.collisions.map(function(id) {
+			return data.entities.entities[id];
+		}).filter(function(enemy) {
+			return enemy && enemy.name === "enemy";
+		}).forEach(function(enemy) {
+			data.sounds.play("pop");
+			enemy.dead = true;
+		});
 		steps.push(alignment(entity, data.entities.entities));
 		steps.push(separation(entity, data.entities.entities));
 		// steps.push(cohesion(entity, data.entities.entities));

@@ -3,6 +3,7 @@
 		"splatjs:advanceTimers",
 		"splatjs:advanceAnimations",
 		"./systems/simulation/steerFlock",
+		"./systems/simulation/deleteDead",
 		"splatjs:applyVelocity",
 		"splatjs:boxCollider"
 	],

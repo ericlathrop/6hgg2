@@ -31,6 +31,7 @@
     "destinationWidth": 14,
     "destinationHeight": 12
    },
+   "collisions": [],
    "flock": true
   },
   {
@@ -64,6 +65,7 @@
     "destinationWidth": 14,
     "destinationHeight": 12
    },
+   "collisions": [],
    "flock": true
   },
   {
@@ -97,6 +99,7 @@
     "destinationWidth": 14,
     "destinationHeight": 12
    },
+   "collisions": [],
    "flock": true
   },
   {
@@ -130,6 +133,7 @@
     "destinationWidth": 14,
     "destinationHeight": 12
    },
+   "collisions": [],
    "flock": true
   },
   {
@@ -163,7 +167,42 @@
     "destinationWidth": 14,
     "destinationHeight": 12
    },
+   "collisions": [],
    "flock": true
+  },
+  {
+   "id": 5,
+   "name": "enemy",
+   "position": {
+    "x": -200,
+    "y": 500
+   },
+   "size": {
+    "width": 100,
+    "height": 50
+   },
+   "velocity": {
+    "x": 0.1,
+    "y": 0
+   },
+   "animation": {
+    "time": 0,
+    "frame": 0,
+    "loop": true,
+    "speed": 1,
+    "name": "red"
+   },
+   "image": {
+    "sourceX": 0,
+    "sourceY": 0,
+    "sourceWidth": 0,
+    "sourceHeight": 0,
+    "destinationX": 0,
+    "destinationY": 0,
+    "destinationWidth": 100,
+    "destinationHeight": 50
+   },
+   "collisions": []
   }
  ],
  "main": []

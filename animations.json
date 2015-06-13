@@ -24,5 +24,19 @@
     }
    }
   }
+ ],
+ "red": [
+  {
+   "time": 100,
+   "properties": {
+    "image": {
+     "name": "red",
+     "sourceX": 0,
+     "sourceY": 0,
+     "sourceWidth": 100,
+     "sourceHeight": 50
+    }
+   }
+  }
  ]
 }
