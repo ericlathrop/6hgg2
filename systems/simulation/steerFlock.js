@@ -44,12 +44,18 @@ function cohesion(entity, entities) {
 	}, vector.zero());
 	avg = vector.divide(avg, velocities.length);
 
-	// return vector.divide(vector.subtract(avg, entity.velocity), 8);
-	return vector.zero();
+	return vector.divide(vector.subtract(avg, entity.velocity), 8);
 }
 
 function goal(entity, goal) {
 	return vector.divide(vector.subtract(goal, entity.position), 100);
+}
+
+function repel(entity, goal) {
+	if (vector.distance(entity, goal) < 100) {
+		return vector.divide(vector.subtract(entity.position, goal), 100);
+	}
+	return vector.zero();
 }
 
 function limitSpeed(v, max) {
@@ -63,14 +69,19 @@ var counter = 0;
 
 module.exports = function(ecs, data) {
 	ecs.addEach(function(entity, elapsedMillis) {
-		var a = alignment(entity, data.entities.entities);
-		var b = separation(entity, data.entities.entities);
-		var c = cohesion(entity, data.entities.entities);
+		var steps = [];
+
+		steps.push(alignment(entity, data.entities.entities));
+		steps.push(separation(entity, data.entities.entities));
+		// steps.push(cohesion(entity, data.entities.entities));
 		var center = { x: data.canvas.width / 2, y: data.canvas.height / 2 };
 		var mouse = { x: data.input.mouse.x, y: data.input.mouse.y };
-		var d = goal(entity, mouse);
+		steps.push(data.input.mouse.isPressed(0) ? repel(entity, mouse) : goal(entity, mouse));
 
-		entity.velocity = vector.add(limitSpeed(entity.velocity, 1), limitSpeed(a, 0.1), limitSpeed(b, 0.1), limitSpeed(c, 0.1), limitSpeed(d, 0.1));
+		steps = steps.map(function(step) { return limitSpeed(step, 0.1); });
+		steps.push(limitSpeed(entity.velocity, 1));
+		entity.velocity = vector.add.apply(this, steps);
+
 		if (data.input.button("down")) {
 			counter += elapsedMillis;
 		}
