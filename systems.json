@@ -1,38 +1,14 @@
 {
 	"simulation": [
-		{
-			"name": "splatjs:advanceTimers",
-			"scenes": ["title","credits","controls","main"]
-		},
-		{
-			"name": "splatjs:advanceAnimations",
-			"scenes": ["title","credits","controls","main"]
-		},
-		{
-			"name": "splatjs:applyVelocity",
-			"scenes": ["title","credits","controls","main"]
-		},
-		{
-			"name": "splatjs:boxCollider",
-			"scenes": ["title","credits","controls","main"]
-		}
+		"splatjs:advanceTimers",
+		"splatjs:advanceAnimations",
+		"splatjs:applyVelocity",
+		"splatjs:boxCollider"
 	],
 	"renderer": [
-		{
-			"name": "splatjs:clearScreen",
-			"scenes": ["title","credits","controls","main"]
-		},
-		{
-			"name": "splatjs:viewport.moveToCamera",
-			"scenes": ["title","credits","controls","main"]
-		},
-		{
-			"name": "splatjs:drawImage",
-			"scenes": ["title","credits","controls","main"]
-		},
-		{
-			"name": "splatjs:viewport.reset",
-			"scenes": ["title","credits","controls","main"]
-		}
+		"splatjs:clearScreen",
+		"splatjs:viewport.moveToCamera",
+		"splatjs:drawImage",
+		"splatjs:viewport.reset"
 	]
 }
