@@ -2,15 +2,19 @@
 
 var vector = require("../../lib/vector");
 
-function alignment(entity, entities) {
-	var positions = Object.keys(entities).map(function(id) {
+function otherBees(entity, entities) {
+	return Object.keys(entities).map(function(id) {
 		return entities[id];
 	}).filter(function(bee) {
 		return bee.flock !== undefined && bee.id !== entity.id;
-	}).map(function(entity) {
+	});
+}
+
+function alignment(entity, entities) {
+	var positions = otherBees(entity, entities).map(function(entity) {
 		return entity.position;
 	});
-	
+
 	var center = positions.reduce(function(center, position) {
 		return vector.add(center, position);
 	}, { x: 0, y: 0 });
@@ -21,11 +25,17 @@ function alignment(entity, entities) {
 }
 
 function separation(entity, entities) {
-	return { x: 0, y: 0 };
+	return otherBees(entity, entities).reduce(function(v, bee) {
+		if (vector.distance(entity.position, bee.position) < 50) {
+			var away = vector.multiply(vector.unit(vector.subtract(bee.position, entity.position)), 0.01);
+			return vector.add(v, away);
+		}
+		return v;
+	}, vector.zero());
 }
 
 function cohesion(entity, entities) {
-	return { x: 0, y: 0 };
+	return vector.zero();
 }
 
 module.exports = function(ecs, data) {
@@ -34,7 +44,6 @@ module.exports = function(ecs, data) {
 		var b = separation(entity, data.entities.entities);
 		var c = cohesion(entity, data.entities.entities);
 
-		entity.velocity.x += a.x + b.x + c.x;
-		entity.velocity.y += a.y + b.y + c.y;
+		entity.velocity = vector.add(entity.velocity, a, b, c);
 	}, ["flock"]);
 };
