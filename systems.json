@@ -2,6 +2,7 @@
 	"simulation": [
 		"splatjs:advanceTimers",
 		"splatjs:advanceAnimations",
+		"./systems/simulation/steerFlock",
 		"splatjs:applyVelocity",
 		"splatjs:boxCollider"
 	],
@@ -9,6 +10,7 @@
 		"splatjs:clearScreen",
 		"splatjs:viewport.moveToCamera",
 		"splatjs:drawImage",
+		"splatjs:drawRectangles",
 		"splatjs:viewport.reset"
 	]
 }
